@@ -2,6 +2,8 @@ var express = require('express');
 var moment = require('moment');
 var app = express();
 
+var port = process.env.PORT || 3000;
+
 app.use(express.static('public'));
 
 app.get('/:timeQuery', function(req, res){
@@ -27,5 +29,6 @@ app.get('/:timeQuery', function(req, res){
   }
 });
 
-app.listen(3000);
-console.log('Listening to port 3000');
+app.listen(port, function() {
+  console.log('App is running on http://localhost:' + port);
+});
